@@ -4,7 +4,8 @@ class Calculator:
   
   def __init__(self):
     window = tkinter.Tk()
-    window.geometry("200x300")
+    window.geometry("147x190")
+    window.resizable(width=False, height=False)
     window.title("Calculator")
 
     lblText = tkinter.StringVar()
@@ -54,14 +55,17 @@ class Calculator:
       lblText.set("")
       if self.operation == "add":
         lblText.set("{:10.4f}".format(firstNum + secondNum))
+        self.firstNumArray = list(lblText.get())
       elif self.operation == "sub":
         lblText.set("{:10.4f}".format(firstNum - secondNum))
+        self.firstNumArray = list(lblText.get())
       elif self.operation == "mult":
         lblText.set("{:10.4f}".format(firstNum * secondNum))
+        self.firstNumArray = list(lblText.get())
       elif self.operation == "div":
         lblText.set("{:10.4f}".format(firstNum / secondNum))
-      self.currentNum = "first"
-      self.firstNumArray = []
+        self.firstNumArray = list(lblText.get())
+      self.currentNum = "second"
       self.secondNumArray = []
 
     def clear(self):
